@@ -22,11 +22,7 @@ public class Teemo {
         int length = timeSeries.length;
         int count = 0;
         for (int i = 0;i<length-1;i++){
-            if ((timeSeries[i+1]-timeSeries[i])>=duration){
-                count += duration;
-            }else{
-                count += timeSeries[i+1]-timeSeries[i];
-            }
+            count += Math.min((timeSeries[i + 1] - timeSeries[i]), duration);
         }
         return count+duration;
     }
